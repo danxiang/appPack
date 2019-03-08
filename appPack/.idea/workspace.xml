@@ -111,9 +111,9 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-437" />
-    <option name="y" value="-1048" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="-498" />
+    <option name="y" value="-1062" />
     <option name="width" value="1823" />
     <option name="height" value="937" />
   </component>
