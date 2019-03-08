@@ -1,0 +1,17 @@
+wisdom_360
+wisdom_ali
+wisdom_anzhi
+wisdom_baidu
+wisdom_huawei
+wisdom_lenovo
+wisdom_lianxiang
+wisdom_meizu
+wisdom_oppo
+wisdom_PC6
+wisdom_qq
+wisdom_smartisan
+wisdom_test
+wisdom_vivo
+wisdom_xiaomi
+wisdom_loadBearing
+wisdom_update
