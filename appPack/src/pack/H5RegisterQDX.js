@@ -8,10 +8,9 @@ var md5 = require('../util/md5')
 main()
 
 function main() {
-    for (let i = 0; i < 1; i++) {
+    for (let i = 0; i < 10; i++) {
         first()
     }
-
 }
 
 /**
@@ -48,39 +47,102 @@ function first() {
 function second(userId) {
     console.log("second===========>start")
     let apiKey = 'wisdom.loan.userInfo.generalizeUpdateUserInfo'
+
+    //贷款金额
+    let loan_amount_arr = ["loan_amount_1000-5000", "loan_amount_5000-10000", "loan_amount_10000-20000", "loan_amount_20000-50000", "loan_amount_50000-100000", "loan_amount_100000-200000", "loan_amount_200000+"]
+    let loan_amount = loan_amount_arr[Math.floor(Math.random() * loan_amount_arr.length)]
+
+    //贷款期限
+    let loan_time_limit_arr = ["loan_time_limit_1m", "loan_time_limit_3", "loan_time_limit_6", "loan_time_limit_12", "loan_time_limit_24", "loan_time_limit_36"]
+    let loan_time_limit = loan_time_limit_arr[Math.floor(Math.random() * loan_time_limit_arr.length)]
+
+    //职业类型
+    let job_type_arr = ["please", "employees", "civil_servant", "employer", "merchant", "soho"]
+    let job_type = job_type_arr[Math.floor(Math.random() * job_type_arr.length)]
+
+    //月收入
+    let monthly_income_arr = ["monthly_income_<3000", "monthly_income_3000-6000", "monthly_income_6000-10000", "monthly_income_10000-20000", "monthly_income_20000+"]
+    let monthly_income = monthly_income_arr[Math.floor(Math.random() * monthly_income_arr.length)]
+
+    //工资发放形式
+    let salary_type_arr = ["wages_choose", "clock_in", "transfer_accounts", "ready_money"]
+    let salary_type = salary_type_arr[Math.floor(Math.random() * salary_type_arr.length)]
+
+    //生日
+    let birthday = (1970 + Math.floor(Math.random() * 25)) + "-01-01"
+
+    //
+    let city_arr = ["上海", "株洲", "北京", "长沙"]
+    let city = city_arr[Math.floor(Math.random() * city_arr.length)]
+
+
     let data = {
         "loanUserCode": userId,
-        "loanAdCodeSecond": "430200",
-        "loanCityNameSecond": "株洲",
-        "birthday": "1990-01-01",
-        "titleReqList": [{
-            "optionKey": ["loan_amount_20000-50000"],
-            "titleKey": "loan_amount"
-        }, {"optionKey": ["loan_time_limit_6"], "titleKey": "loan_time_limit"}, {
-            "optionKey": ["local_census_register"],
-            "titleKey": "family_register_type"
-        }, {"optionKey": ["employees"], "titleKey": "job_type"}, {
-            "optionKey": ["monthly_income_3000-6000"],
-            "titleKey": "monthly_income"
-        }, {"optionKey": ["clock_in"], "titleKey": "salary_type"}, {
-            "optionKey": ["credit_card_yes"],
-            "titleKey": "credit_card"
-        }, {
-            "optionKey": ["is_social_security_yes"],
-            "titleKey": "is_social_security"
-        }, {
-            "optionKey": ["is_accumulation_fund_yes"],
-            "titleKey": "is_accumulation_fund"
-        }, {"optionKey": ["own_house_yes"], "titleKey": "own_house"}, {
-            "optionKey": ["house_loan_yes"],
-            "titleKey": "house_loan"
-        }, {"optionKey": ["own_car_yes"], "titleKey": "own_car"}, {
-            "optionKey": ["car_loan_yes"],
-            "titleKey": "car_loan"
-        }, {"optionKey": ["guarantee_slip_yes"], "titleKey": "guarantee_slip"}, {
-            "optionKey": ["Weilidai_yes"],
-            "titleKey": "Weilidai"
-        }]
+        "loanAdCodeSecond": null,
+        "loanCityNameSecond": city,
+        "birthday": birthday,
+        "titleReqList": [
+            {
+                "optionKey": [loan_amount],
+                "titleKey": "loan_amount"
+            },
+            {
+                "optionKey": [loan_time_limit],
+                "titleKey": "loan_time_limit"
+            },
+            {
+                "optionKey": ["local_census_register"],
+                "titleKey": "family_register_type"
+            },
+            {
+                "optionKey": [job_type],
+                "titleKey": "job_type"
+            },
+            {
+                "optionKey": [monthly_income],
+                "titleKey": "monthly_income"
+            },
+            {
+                "optionKey": [salary_type],
+                "titleKey": "salary_type"
+            },
+            {
+                "optionKey": [Math.floor(Math.random() * 2) == 0 ? "credit_card_yes" : "credit_card_no"],
+                "titleKey": "credit_card"
+            },
+            {
+                "optionKey": [Math.floor(Math.random() * 2) == 0 ? "is_social_security_yes" : "is_social_security_no"],
+                "titleKey": "is_social_security"
+            },
+            {
+                "optionKey": [Math.floor(Math.random() * 2) == 0 ? "is_accumulation_fund_yes" : "is_accumulation_fund_no"],
+                "titleKey": "is_accumulation_fund"
+            },
+            {
+                "optionKey": [Math.floor(Math.random() * 2) == 0 ? "own_house_yes" : "own_house_no"],
+                "titleKey": "own_house"
+            },
+            {
+                "optionKey": [Math.floor(Math.random() * 2) == 0 ? "house_loan_yes" : "house_loan_no"],
+                "titleKey": "house_loan"
+            },
+            {
+                "optionKey": [Math.floor(Math.random() * 2) == 0 ? "own_car_yes" : "own_car_no"],
+                "titleKey": "own_car"
+            },
+            {
+                "optionKey": [Math.floor(Math.random() * 2) == 0 ? "car_loan_yes" : "car_loan_no"],
+                "titleKey": "car_loan"
+            },
+            {
+                "optionKey": [Math.floor(Math.random() * 2) == 0 ? "guarantee_slip_yes" : "guarantee_slip_no"],
+                "titleKey": "guarantee_slip"
+            },
+            {
+                "optionKey": [Math.floor(Math.random() * 2) == 0 ? "Weilidai_yes" : "Weilidai_no"],
+                "titleKey": "Weilidai"
+            }
+        ]
     }
 
     request(apiKey, data).then((response) => {
