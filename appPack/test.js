@@ -1,7 +1,7 @@
 require('./src/ext/StringExt');
 require('./src/ext/DateExt');
 
-// main()
+main()
 
 function main() {
     // let startDate = new Date('2016-06-22')
@@ -14,7 +14,7 @@ function main() {
     // console.log('main====>', between)
     //
     // method1()
-    // array()
+    array()
 
 }
 
@@ -33,7 +33,35 @@ function method1() {
 function array() {
     let arr = [2,4,5,6,7,8]
 
-    console.log("======》", arr.slice(0,2))
+    console.log("arr======>" + ["asda","qweq","fsfd"].join(","))
+
+	let b = arr.filter((a)=>{
+
+		return a > 9
+	})
+
+    console.log("arr111======>" , b)
+
+
+	let p = {
+    	a: [11,22,33],
+		b:[111,222,333],
+		c:[1,2,3],
+	}
+
+	outer:
+	for (let key in p){
+        for (let i = 0; i < p[key].length; i++) {
+			let data = p[key][i]
+            console.log("data======>" + data)
+
+			if (data == 222){
+				break outer
+			}
+        }
+	}
+
+    // console.log("======》", arr.slice(0,2))
 }
 
 /*
@@ -54,7 +82,7 @@ function find1(){
 	console.log("find1====>",count)
 }
 
-find0()
+// find0()
 /**
 * 判断二进制中0的个数
 */

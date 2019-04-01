@@ -8,7 +8,7 @@ var md5 = require('../util/md5')
 main()
 
 function main() {
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 1; i++) {
         first()
     }
 }
@@ -79,7 +79,7 @@ function second(userId) {
     let data = {
         "loanUserCode": userId,
         "loanAdCodeSecond": null,
-        "loanCityNameSecond": city,
+        "loanCityNameSecond": "上海",
         "birthday": birthday,
         "titleReqList": [
             {
